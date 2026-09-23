@@ -1,0 +1,29 @@
+INTRANET DES AGENTS — VILLE DU LAMENTIN
+Export du code de la version publiée le 23 septembre 2026.
+
+OÙ SONT LES FICHIERS ?
+- intranet/index.html : page d'accueil de l'intranet.
+- code-lisible.html : même page, présentée avec indentation et commentaires pour la lecture.
+- public/styles.css, public/logo-lamentin.png, public/favicon.svg : apparence et identité du site.
+- public/documents/ : formulaires PDF.
+- public/annuaire-3cx.json : annuaire fourni avec le site.
+- intranet/admin.html et public/admin.js, public/admin.css : interface de gestion des actualités.
+- app/api/news/, db/ et drizzle/ : API, droits d'accès et structure de la base des actualités.
+- package.json, pnpm-lock.yaml, app/, scripts/ et les fichiers de configuration : application complète.
+
+POUR DÉVELOPPER
+Prérequis : Node.js 22.13 ou plus récent et pnpm 11.25.0.
+Depuis ce dossier :
+  corepack pnpm install --frozen-lockfile
+  corepack pnpm dev
+
+La mise en ligne complète utilise le projet Sites indiqué dans .openai/hosting.json.
+L'authentification des gestionnaires utilise l'identité ChatGPT/Sites ; la base
+D1 et le stockage privé R2 sont nécessaires aux actualités et aux photos.
+Pour héberger le site ailleurs, il faut adapter l'authentification et la
+configuration de ces services. Ouvrir seulement index.html dans un navigateur
+ne suffit pas à faire fonctionner la gestion des actualités.
+
+Les actualités déjà publiées et les photos ajoutées depuis l'interface sont
+enregistrées dans la base et le stockage du site. Leurs données ne sont pas
+incluses dans cette archive de code source.
