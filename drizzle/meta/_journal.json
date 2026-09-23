@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1790175045417,
+      "tag": "0000_nasty_exiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790176532495,
+      "tag": "0001_jittery_talos",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790177297917,
+      "tag": "0002_sudden_piledriver",
+      "breakpoints": true
+    }
+  ]
+}

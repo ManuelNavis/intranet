@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gérer les actualités · Ville du Lamentin</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><img src="/logo-lamentin.png" alt="Ville du Lamentin"><span><strong>Ville du Lamentin</strong><small>Gestion des actualités</small></span></a>
+    <a class="back-link" href="/">← Retour à l’intranet</a>
+  </header>
+  <main class="shell">
+    <div class="intro"><div><p class="eyebrow">Intranet des agents</p><h1>Actualités</h1><p>Rédigez vos informations et choisissez quand les rendre visibles sur l’accueil.</p></div><button type="button" class="primary" id="new" hidden>+ Nouvelle actualité</button></div>
+    <p id="global-message" class="message" role="status" tabindex="-1">Chargement des actualités…</p>
+    <div id="workspace" class="workspace" hidden>
+      <section class="card list-card" aria-labelledby="list-title">
+        <div class="card-heading"><h2 id="list-title">Toutes les actualités</h2><span id="count"></span></div>
+        <div id="list" class="news-list"></div>
+      </section>
+      <section class="card edit-card" aria-labelledby="form-title">
+        <div class="card-heading"><h2 id="form-title">Nouvelle actualité</h2><span id="edit-status"></span></div>
+        <form id="form">
+          <label for="title">Titre <span aria-hidden="true">*</span></label>
+          <input id="title" name="title" required maxlength="120" autocomplete="off" placeholder="Ex. : Informations sur les congés">
+          <label for="summary">Texte de l’actualité <span aria-hidden="true">*</span></label>
+          <textarea id="summary" name="summary" required maxlength="600" rows="6" placeholder="Rédigez les informations utiles aux agents."></textarea>
+          <div class="two-cols">
+            <div><label for="category">Rubrique <span aria-hidden="true">*</span></label><input id="category" name="category" list="categories" required maxlength="80" placeholder="Choisir ou saisir"><datalist id="categories"><option value="Vie de la collectivité"><option value="Ressources humaines"><option value="Informatique"></datalist></div>
+            <div><label for="date">Date <span aria-hidden="true">*</span></label><input id="date" name="date" type="date" required></div>
+          </div>
+          <label for="link">Lien complémentaire <span class="optional">(facultatif)</span></label>
+          <input id="link" name="link" type="url" maxlength="1000" placeholder="https://…">
+          <p class="field-hint">Un bouton « En savoir plus » s’affichera dans l’actualité si vous ajoutez un lien.</p>
+          <div class="photo-field">
+            <label for="photos">Photos <span class="optional">(facultatif)</span></label>
+            <input id="photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple>
+            <p class="field-hint">Jusqu’à 4 photos par actualité · JPEG, PNG ou WebP · 8 Mo maximum par photo.</p>
+            <div id="existing-photos" class="photo-preview" aria-label="Photos de l’actualité"></div>
+            <div id="selected-photos" class="photo-preview" aria-live="polite"></div>
+          </div>
+          <label class="publish-choice"><input id="published" name="published" type="checkbox" checked><span><strong>Publier sur l’accueil</strong><small>Décochez pour enregistrer en brouillon.</small></span></label>
+          <p id="form-message" class="form-message" role="status" hidden></p>
+          <div class="form-actions"><button type="button" class="secondary" id="cancel" hidden>Annuler la modification</button><button type="submit" class="primary" id="save">Publier l’actualité</button></div>
+        </form>
+      </section>
+      <section class="card access-card" id="access-card" aria-labelledby="access-title" hidden>
+        <div class="card-heading"><h2 id="access-title">Accès à la gestion</h2><span>Réservé au propriétaire</span></div>
+        <div class="access-content">
+          <p>Autorisez les personnes qui peuvent publier, modifier et supprimer les actualités. Elles doivent aussi avoir accès à l’intranet et se connecter avec la même adresse e-mail.</p>
+          <form id="access-form" class="access-form">
+            <div><label for="editor-email">Adresse e-mail de la personne</label><input id="editor-email" name="email" type="email" required autocomplete="email" placeholder="prenom.nom@ville.fr"></div>
+            <button type="submit" class="primary" id="add-editor">Autoriser</button>
+          </form>
+          <p id="access-message" class="access-message" role="status" hidden></p>
+          <h3>Personnes autorisées</h3>
+          <div id="editor-list" class="editor-list"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>
